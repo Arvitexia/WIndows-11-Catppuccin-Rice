@@ -1,0 +1,84 @@
+{
+  "font": "JetBrainsMono NF",
+  "fontWeight": 400,
+  "currentTheme": "custom",
+  "tabTitle": "~",
+  "taskBackend": "google-tasks",
+  "todoistApiToken": "",
+  "googleTasksSignedIn": true,
+  "locationMode": "auto",
+  "latitude": 23.74,
+  "longitude": 90.39,
+  "showSeconds": true,
+  "timeFormat": "12hr",
+  "dateFormat": "dmy",
+  "tempUnit": "celsius",
+  "speedUnit": "kmh",
+  "forecastMode": "hourly",
+  "linksPerColumn": 4,
+  "linkTarget": "_self",
+  "linkHotkeys": false,
+  "linkHotkeyPosition": "right",
+  "linkIconMode": "icons",
+  "links": [
+    {
+      "title": "gmail",
+      "url": "https://mail.google.com",
+      "icon": "gmail",
+      "hotkey": "g"
+    },
+    {
+      "title": "drive",
+      "url": "https://drive.google.com",
+      "icon": "googledrive",
+      "hotkey": "d"
+    },
+    {
+      "title": "github",
+      "url": "https://github.com",
+      "icon": "github",
+      "hotkey": "i"
+    },
+    {
+      "title": "keep",
+      "url": "https://keep.google.com",
+      "icon": "googlekeep",
+      "hotkey": "k"
+    },
+    {
+      "title": "youtube",
+      "url": "https://youtube.com",
+      "icon": "youtube",
+      "hotkey": "y"
+    },
+    {
+      "title": "reddit",
+      "url": "https://reddit.com",
+      "icon": "reddit",
+      "hotkey": "r"
+    },
+    {
+      "title": "twitter",
+      "url": "https://x.com",
+      "icon": "x",
+      "hotkey": "x"
+    }
+  ],
+  "customThemeColors": {
+    "bg1": "#1E1E2E",
+    "bg2": "#1d1d1d",
+    "bg3": "#cba6f7",
+    "txt1": "#dedede",
+    "txt2": "#bac2de",
+    "txt3": "#cdd6f4",
+    "txt4": "#a6adc8",
+    "txtErr": "#f38ba8"
+  },
+  "pingUrl": "https://www.google.com/generate_204",
+  "customCSS": ".panel, .card, .box, [class*=\"border\"] \n\n{\n  border-radius: 14px !important;\n  border-width: 4.5px !important;\n}\n",
+  "showClock": false,
+  "showStats": false,
+  "showWeather": false,
+  "showTasks": true,
+  "showLinks": true
+}
