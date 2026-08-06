@@ -1,0 +1,850 @@
+watch_stylesheet: true
+watch_config: true
+debug: false
+
+komorebi:
+  start_command: "komorebic start"
+  stop_command: "komorebic stop"
+  reload_command: "komorebic stop && komorebic start"
+
+bars:
+  status-bar:
+    enabled: true
+    screens: ['*']
+    class_name: "yasb-bar"
+    alignment:
+      position: "top"
+      center: false
+    blur_effect:
+      enabled: false
+      acrylic: false
+      dark_mode: false
+      round_corners: false
+      border_color: None
+    window_flags:
+      always_on_top: true
+      windows_app_bar: true
+      hide_on_fullscreen: true
+    dimensions:
+      width: "100%"
+      height: 34
+    padding:
+      top: 6
+      left: 26
+      bottom: 2
+      right: 26
+    widgets:
+      left:
+              [
+                "komorebi-grouper",
+                "wallpapers",
+                "komorebi_stack",
+                "apps-grouper"
+
+              ]
+      center:
+              [
+                "dt-grouper",
+                "w-grouper",
+
+              ]
+
+      right:
+              [
+
+              "media-grouper",
+              "systeminfo-grouper",
+              "power-grouper"
+
+              ]
+
+
+
+widgets:
+
+
+
+  komorebi-grouper:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "komorebi-grouper"
+      widgets: [
+        "komorebi_control",
+        "komorebi_workspaces",
+        "komorebi_active_layout",
+      ]
+
+
+  systeminfo-grouper:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "systeminfo-grouper"
+      widgets: [
+        "cpu",
+        "memory"
+      ]
+
+  power-grouper:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "power-grouper"
+      widgets: [
+        "power_plan",
+        "power_menu"
+      ]
+
+
+  media-grouper:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "media-grouper"
+      widgets: [
+        "cava",
+        "media",
+        "volume"
+      ]
+
+  dt-grouper:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "dt-grouper"
+      widgets: [
+        "clock"
+      ]
+
+
+  w-grouper:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "w-grouper"
+      widgets: [
+        "weather"
+      ]
+
+
+  apps-grouper:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "apps-grouper"
+      widgets: [
+        "apps",
+      ]
+
+
+
+
+
+
+
+
+  apps:
+    type: "yasb.applications.ApplicationsWidget"
+    options:
+      tooltip: true
+      label: "{data}"
+      app_list:
+        # Games
+        - {icon: "\uf1b6", launch: "C:\\Program Files (x86)\\Steam\\steam.exe", name: "Steam"}
+
+        # Communication
+        - {icon: "\uf1ff", launch: "C:\\Users\\arvit\\AppData\\Local\\Discord\\Update.exe --processStart Discord.exe", name: "Discord"}
+
+        - {icon: "\uf130", launch: "C:\\Program Files\\Elgato\\WaveLink\\WaveLink.exe", name: "Elgato Wave Link"}
+
+        # Browsers
+        - {icon: "\uf268", launch: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe", name: "Chrome"}
+
+        # Development / Productivity
+        - {icon: "\ue8da", launch: "C:\\Users\\arvit\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe", name: "VS Code"}
+        - {icon: "\uf489", launch: "wt", name: "Windows Terminal"}
+
+        # Media & Audio
+        - {icon: "\uf1bc", launch: "C:\\Users\\arvit\\AppData\\Roaming\\Spotify\\Spotify.exe", name: "Spotify"}
+        - {icon: "\uf144", launch: "C:\\Users\\arvit\\AppData\\Local\\Programs\\Stremio\\stremio-shell-ng.exe", name: "Stremio"}
+
+
+        # Utilities / System
+        - {icon: "\uf07b", launch: "explorer.exe", name: "File Explorer"}
+
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+
+
+
+
+
+
+  clock:
+    type: "yasb.clock.ClockWidget"
+    options:
+      label: "{%a, %b %d \uf444 %I:%M %p}"
+      label_alt: "{%I:%M %p }"
+      locale: ""
+      update_interval: 1000
+      timezones: []
+      icons:
+        clock_01 : "\udb85\udc3f"
+        clock_02 : "\udb85\udc40"
+        clock_03 : "\udb85\udc41"
+        clock_04 : "\udb85\udc42"
+        clock_05 : "\udb85\udc43"
+        clock_06 : "\udb85\udc44"
+        clock_07 : "\udb85\udc45"
+        clock_08 : "\udb85\udc46"
+        clock_09 : "\udb85\udc47"
+        clock_10 : "\udb85\udc48"
+        clock_11 : "\udb85\udc49"
+        clock_12 : "\udb85\udc4a"
+        clock_16 : "SNACK TIME !"
+        clock_21 : "Zzz..."
+        clock_22 : "Zzz..."
+        clock_23 : "Zzz..."
+      alarm_icons:
+        enabled: "\uf0f3"
+        disabled: "\uf0a2"
+        snooze: "\uf1f6"
+      calendar:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "center"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        show_holidays: false
+        show_week_numbers: true
+        country_code: "AR"
+        holiday_color: "#FF6464"
+        extended: false
+      callbacks:
+        on_left: "toggle_calendar"
+        on_middle: "next_timezone"
+        on_right: "toggle_label"
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+
+
+
+  cava:
+    type: "yasb.cava.CavaWidget"
+    options:
+      output_bit_format: '16bit'
+      edge_fade: [300,300]
+      noise_reduction: 3
+      bar_height: 24
+      min_bar_height: 2
+      gradient: 1
+      foreground: "#89b4fa"
+      gradient_color_1: '#74c7ec'
+      gradient_color_2: '#89b4fa'
+      gradient_color_3: '#cba6f7'
+      bars_number: 16
+      bar_spacing: 2
+      bar_width: 4
+      bar_type: "bars_mirrored"
+      framerate: 180
+      hide_empty: false
+
+
+
+
+
+
+
+
+
+
+
+  power_plan:
+    type: "yasb.power_plan.PowerPlanWidget"
+    options:
+      label: "<span>\uf0e7</span> {active_plan}"
+      label_alt: "<span>\uf0e7</span> Power Plan {active_plan}"
+      update_interval: 5000
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "center"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+      label_shadow:
+        enabled: false
+        color: "black"
+        offset: [1, 1]
+        radius: 3
+      container_shadow:
+        enabled: false
+        color: "#000000"
+        offset: [0, 1]
+        radius: 2
+
+
+
+
+
+  cpu:
+    type: "yasb.cpu.CpuWidget"
+    options:
+      label: "<span>\uf4bc</span> {info[percent][total]}%"
+      label_alt: "<span>\uf437</span> {info[histograms][cpu_percent]}"
+      update_interval: 2000
+      cpu_thresholds:
+        low: 25
+        medium: 50
+        high: 90
+      histogram_icons:
+        - "\u2581" # 0%
+        - "\u2581" # 10%
+        - "\u2582" # 20%
+        - "\u2583" # 30%
+        - "\u2584" # 40%
+        - "\u2585" # 50%
+        - "\u2586" # 60%
+        - "\u2587" # 70%
+        - "\u2588" # 80%+
+      histogram_num_columns: 8
+      callbacks:
+        on_right: "exec cmd /c Taskmgr"
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+
+
+  memory:
+    type: "yasb.memory.MemoryWidget"
+    options:
+      label: "<span>\uf4bc</span> {virtual_mem_free}/{virtual_mem_total}"
+      label_alt: "<span>\uf4bc</span> VIRT: {virtual_mem_percent}% SWAP: {swap_mem_percent}%"
+      update_interval: 5000
+      callbacks:
+        on_left: "toggle_label"
+        on_middle: "do_nothing"
+        on_right: "do_nothing"
+      memory_thresholds:
+        low: 25
+        medium: 50
+        high: 90
+      histogram_icons:
+        - "\u2581" # 0%
+        - "\u2581" # 10%
+        - "\u2582" # 20%
+        - "\u2583" # 30%
+        - "\u2584" # 40%
+        - "\u2585" # 50%
+        - "\u2586" # 60%
+        - "\u2587" # 70%
+        - "\u2588" # 80%+
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+
+
+
+
+
+  taskbar:
+    type: "yasb.taskbar.TaskbarWidget"
+    options:
+      icon_size: 16
+      tooltip: true
+      show_only_visible: false
+      strict_filtering: true
+      monitor_exclusive: false
+      animation:
+        enabled: true
+      preview:
+        enabled: false
+        width: 240
+        delay: 400
+        padding: 8
+        margin: 8
+      title_label:
+        enabled: false
+        show: "always"
+        min_length: 10
+        max_length: 30
+      ignore_apps:
+        processes: []
+        titles: []
+        classes: []
+
+
+
+
+
+
+
+
+
+  komorebi_stack:
+    type: "komorebi.stack.StackWidget"
+    options:
+      label_offline: "POTATO"
+      label_window: "{process}"
+      label_window_active: "{title}"
+      label_no_window: "No Window"
+      label_zero_index: false
+      show_icons: "always"
+      icon_size: 14
+      max_length: 10
+      max_length_active: 20
+      max_length_ellipsis: ".."
+      hide_if_offline: false
+      show_only_stack: false
+      rewrite:
+        - pattern: "^(.+?)\\.exe$"
+          replacement: "\\1"
+          case: "lower"
+      animation: true
+      enable_scroll_switching : true
+      container_shadow:
+        enabled: false
+        color: "#000000"
+        offset: [0, 1]
+        radius: 2
+      btn_shadow:
+        enabled: false
+        color: "#000000"
+        offset: [0, 1]
+        radius: 2
+      label_shadow:
+        enabled: false
+        color: "#000000"
+        offset: [0, 1]
+        radius: 2
+
+
+
+
+
+
+
+
+
+  komorebi_control:
+      type: "komorebi.control.KomorebiControlWidget"
+      options:
+        label: "<span>\udb80\uddd9</span>"
+        icons:
+          start: "\uead3"
+          stop: "\uead7"
+          reload: "\uead2"
+        run_ahk: false
+        run_whkd: false
+        run_masir: false
+        show_version: true
+        komorebi_menu:
+          blur: true
+          round_corners: true
+          round_corners_type: 'normal'
+          border_color: 'System'
+          alignment: 'left'
+          direction: 'down'
+          offset_top: 6
+          offset_left: 0
+        label_shadow:
+          enabled: false
+          color: "black"
+          radius: 3
+          offset: [ 1, 1 ]
+
+
+  komorebi_workspaces:
+      type: "komorebi.workspaces.WorkspaceWidget"
+      options:
+          label_offline: "\u26a1 Offline"
+          label_workspace_btn: "\udb81\udc3d"
+          label_workspace_active_btn: ""
+          label_workspace_populated_btn: "\udb81\udc3e"
+          label_default_name: "{index}"
+          label_zero_index: false
+          hide_empty_workspaces: false
+          hide_if_offline: false
+          animation: true
+          container_padding:
+            top: 0
+            left: 0
+            bottom: 0
+            right: 0
+
+
+
+  komorebi_active_layout:
+      type: "komorebi.active_layout.ActiveLayoutWidget"
+      options:
+        hide_if_offline: true
+        label: "{icon}"
+        layouts: ['bsp', 'columns', 'rows', 'grid', 'vertical_stack', 'horizontal_stack', 'ultrawide_vertical_stack','right_main_vertical_stack']
+        layout_icons:
+          bsp: "BSP"
+          columns: "COLS"
+          rows: "ROWS"
+          grid: "GRID"
+          vertical_stack: "V-STACK"
+          horizontal_stack: "H-STACK"
+          ultrawide_vertical_stack: "W-STACK"
+          right_main_vertical_stack: "RMV-STACK"
+          monocle: "MONOCLE"
+          maximised: "MAX"
+          floating: "FLOATING"
+          paused: "PAUSED"
+        callbacks:
+          on_left: 'next_layout'
+          on_middle: 'toggle_monocle'
+          on_right: 'prev_layout'
+        container_padding:
+          top: 0
+          left: 0
+          bottom: 0
+          right: 0
+
+
+
+
+
+  media:
+    type: "yasb.media.MediaWidget"
+    options:
+      label: "{title}{s}{artist}"
+      label_alt: "{title}"
+      separator: " - "
+      hide_empty: false
+      callbacks:
+        on_left: "toggle_media_menu"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+      max_field_size:
+        label: 20
+        label_alt: 30
+      show_thumbnail: true
+      controls_only: false
+      controls_left: true
+      controls_hide: false
+      thumbnail_alpha: 150
+      thumbnail_padding: 8
+      thumbnail_corner_radius: 4
+      symmetric_corner_radius: true
+      icons:
+        prev_track: "\ue892"
+        next_track: "\ue893"
+        play: "\ue768"
+        pause: "\ue769"
+      media_menu:
+        blur: false
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        thumbnail_corner_radius: 8
+        thumbnail_size: 120
+        max_title_size: 60
+        max_artist_size: 20
+        show_source: true
+      media_menu_icons:
+        play: "\ue768"
+        pause: "\ue769"
+        prev_track: "\ue892"
+        next_track: "\ue893"
+      scrolling_label:
+        enabled: false
+        update_interval_ms: 30
+        style: "left"  # can be "left", "right", "bounce", "bounce-ease"
+        separator: " | "
+        label_padding: 0
+        always_scroll: false
+        # Easing curve params: https://www.desmos.com/calculator/j7eamemxzi
+        ease_slope: 2
+        ease_pos: 0.8
+        ease_min: 0.5
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+
+
+
+
+
+
+
+
+  weather:
+    type: "yasb.weather.WeatherWidget"
+    options:
+      label: "<span>{icon}</span> {temp}"
+      label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
+      api_key: "3bf4cf9a7c3f40d6b31174128242807" # Get your free API key from https://www.weatherapi.com/
+      show_alerts: true
+      tooltip: true
+      update_interval: 600 # Update interval in seconds, Min 600 seconds
+      hide_decimal: true
+      units: "metric" # Can be 'metric' or 'imperial'
+      location: "Dhaka" # You can use "USA Los Angeles 90006" {COUNTRY CITY ZIP_CODE}, or just city.
+      callbacks:
+        on_left: "toggle_card"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+      icons:
+        sunnyDay: "\ue30d"
+        clearNight: "\ue32b"
+        cloudyDay: "\ue312"
+        cloudyNight: "\ue311"
+        rainyDay: "\ue308"
+        rainyNight: "\ue333"
+        snowyDay: "\ue30a"
+        snowyNight: "\ue335"
+        blizzardDay: "\udb83\udf36"
+        blizzardNight: "\udb83\udf36"
+        foggyDay: "\ue303"
+        foggyNight: "\ue346"
+        thunderstormDay: "\ue30f"
+        thunderstormNight: "\ue338"
+        default: "\uebaa"
+      weather_card:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "right"
+        direction: "down"
+        icon_size: 64
+        show_hourly_forecast: true # Set to False to disable hourly forecast
+        time_format: "24h" # can be 12h or 24h
+        hourly_point_spacing: 76
+        hourly_icon_size: 32 # better to set 16, 32 or 64 for better quality
+        icon_smoothing: true # should be true for smoother icon or false for sharper icon if using 16, 32 or 64 for hourly_icon_size
+        temp_line_width: 2 # can be 0 to hide the temperature line
+        current_line_color: "#8EAEE8"
+        current_line_width: 1 # can be 0 to hide the current hour line
+        current_line_style: "dot"
+        hourly_gradient:
+          enabled: false
+          top_color: "#8EAEE8"
+          bottom_color: "#2A3E68"
+        hourly_forecast_buttons: # Optional hourly forecast data type toggle buttons, default disabled
+          enabled: true # Set to false to hide the buttons
+          default_view: "temperature" # Default view when opening the weather card. Options: "temperature", "rain", "snow"
+          temperature_icon: "\udb81\udd99"
+          rain_icon: "\udb81\udd96"
+          snow_icon: "\udb81\udd98"
+        weather_animation:
+          enabled: false
+          snow_overrides_rain: true
+          temp_line_animation_style: both # can be "rain", "snow", "both", or "none"
+          rain_effect_intensity: 1.0 # 0.01 - 10.0
+          snow_effect_intensity: 1.0 # 0.01 - 10.0
+          scale_with_chance: true
+          enable_debug: false
+      label_shadow:
+        enabled: true
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+
+
+
+
+  volume:
+    type: "yasb.volume.VolumeWidget"
+    options:
+      label: "<span>{icon}</span> {level}"
+      label_alt: "{volume}"
+      volume_icons:
+        - "\ueee8"  # Icon for muted
+        - "\uf026"  # Icon for 0-10% volume
+        - "\uf027"  # Icon for 11-30% volume
+        - "\uf027"  # Icon for 31-60% volume
+        - "\uf028"  # Icon for 61-100% volume
+      audio_menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "right"
+        direction: "down"
+        offset_top: 6 # Set the top offset of the menu
+        offset_left: 0 # Set the left offset of the menu
+        show_apps: true # Whether to show the list of applications with audio sessions
+        show_app_labels: false # Whether to show application labels in the audio menu
+        show_app_icons: true # Whether to show application icons in the audio menu
+        show_apps_expanded: false # Whether application volumes are expanded by default when opening the menu
+        app_icons: # Icons for the toggle button to expand/collapse application volumes
+          toggle_down: "|" # Icon for btn collapsed state
+          toggle_up: "\uf077" # Icon for btn expanded state
+      callbacks:
+        on_left: "toggle_volume_menu"
+        on_right: "toggle_mute"
+      label_shadow:
+        enabled: false
+        color: "black"
+        radius: 3
+        offset: [ 1, 1 ]
+
+
+
+  power_menu:
+    type: "yasb.power_menu.PowerMenuWidget"
+    options:
+      label: "\uf011"
+      show_user: false
+      uptime: true
+      blur_background: true
+      animation_duration: 200
+      button_row: 6
+      menu_style: "fullscreen" # can be "fullscreen" or "popup"
+      popup:
+        blur: false
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "#2b2e43"
+        alignment: "center"
+      buttons:
+        shutdown: ["\uf011", "Shut Down"]
+        restart: ["\uead2", "Restart"]
+        signout: ["\udb80\udf43", "Sign out"]
+        hibernate: ["\uf28e", "Hibernate"]
+        sleep: ["\u23fe", "Sleep"]
+        lock: ["\uea75", "Lock"]
+        cancel: ["", "Cancel"]
+
+
+
+  custom_button:
+      type: "yasb.custom.CustomWidget"
+      options:
+        label: "<span>\udb80\udf5c</span>"
+        label_alt: "<span>\udb80\udf5c</span>"
+        class_name: "start-menu"
+        callbacks:
+          on_left: "exec start_menu"
+  active_window:
+      type: "yasb.active_window.ActiveWindowWidget"
+      options:
+        label: "{win[title]}"
+        label_alt: ""
+        label_no_window: ""
+        label_icon: false
+        label_icon_size: 12
+        max_length: 36
+        max_length_ellipsis: "..."
+        monitor_exclusive: true
+  battery:
+      type: "yasb.battery.BatteryWidget"
+      options:
+        label: "<span>{icon}</span>{percent}%"
+        label_alt: "{icon} {percent}% | time: {time_remaining}"
+        charging_options:
+          icon_format: "{charging_icon}"
+  language:
+      type: "yasb.language.LanguageWidget"
+      options:
+        label: "{lang[language_code]}"
+        label_alt: "{lang[full_name]}"
+        update_interval: 1
+        callbacks:
+          on_left: "toggle_label"
+          on_middle: "do_nothing"
+          on_right: "do_nothing"
+  memory:
+      type: "yasb.memory.MemoryWidget"
+      options:
+        label: "<span>\uf4bc</span> {virtual_mem_free}/{virtual_mem_total}"
+        label_alt: "<span>\uf4bc</span> VIRT: {virtual_mem_percent}% SWAP: {swap_mem_percent}%"
+        update_interval: 5000
+        callbacks:
+          on_left: 'toggle_label'
+          on_middle: 'do_nothing'
+          on_right: 'do_nothing'
+        memory_thresholds:
+          low: 25
+          medium: 50
+      high: 90
+  wallpapers:
+    type: "yasb.wallpapers.WallpapersWidget"
+    options:
+      label: "<span>\uf00f</span>"
+      image_path: "D:\\Wallpapers" # Example path to folder with images
+      change_automatically: false # Automatically change wallpaper
+      update_interval: 60 # If change_automatically is true, update interval in seconds
+      gallery:
+          enabled: true
+          blur: true
+          image_width: 400
+          image_per_page: 3
+          show_buttons: false
+          orientation: "landscape"
+          image_spacing: 16
+          lazy_load: true
+          lazy_load_delay: 80
+          lazy_load_fadein: 400
+          image_corner_radius: 8
+          enable_cache: true
+  wifi:
+    type: "yasb.wifi.WifiWidget"
+    options:
+      label: "<span>{wifi_icon}</span>"
+      label_alt: "{wifi_name}"
+      update_interval: 5000
+      callbacks:
+        on_left: "exec cmd.exe /c start ms-settings:network"
+        on_middle: "do_nothing"
+        on_right: "toggle_label"
+  obs:
+    type: "yasb.obs.ObsWidget"
+    options:
+      connection:
+        host: "193.147.0.101"
+        port: 4400
+        password: "yourstrongpassword:3"
+      icons:
+        recording: "\ueba7"
+        stopped: "\ueba5"
+        paused: "\ueba7"
+      hide_when_not_recording: true
+      blinking_icon: true
+  update:
+    type: "yasb.update_check.UpdateCheckWidget"
+    options:
+      winget_update:
+        enabled: true
+        label: "<span>\uf0ab</span>{count}"
+        interval: 180
+        exclude: []
+      windows_update:
+        enabled: false
+        label: "<span>\uf0ab</span>{count}"
+        interval: 240
+        exclude: []
