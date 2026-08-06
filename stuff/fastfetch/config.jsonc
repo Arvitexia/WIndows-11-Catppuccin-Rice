@@ -1,0 +1,54 @@
+{
+  "$schema": "https://github.com",
+  "logo": {
+    "source": "C:/Users/arvit/.config/fastfetch/logo.txt",
+    "padding": { "top": 0, "left": 4, "bottom": 1 }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys": "38;2;203;166;247",  // Mauve
+      "title": "38;2;137;180;250"  // Blue
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "shell",
+    "display",
+    "de",
+    "wm",
+    {
+      "type": "wmtheme",
+      "key": "Theme",
+      "format": "Catppuccin Mocha"
+    },
+    "icons",
+    "font",
+    "cursor",
+    "terminal",
+    "terminalfont",
+    "cpu",
+    "gpu",
+    "memory",
+    "swap",
+    "disk",
+    "battery",
+    "poweradapter",
+    "locale",
+    "break",
+    {
+      "type": "custom",
+      "format": "\u001b[38;2;69;71;90m█ \u001b[38;2;88;91;112m█ \u001b[38;2;137;180;250m█ \u001b[38;2;116;199;236m█ \u001b[38;2;137;220;235m█ \u001b[38;2;148;226;213m█ \u001b[38;2;166;227;161m█ \u001b[38;2;203;166;247m█"
+    },
+    { "type": "custom", "format": "" },
+    {
+      "type": "custom",
+      "format": "\u001b[38;2;243;139;168m█ \u001b[38;2;235;160;172m█ \u001b[38;2;250;179;135m█ \u001b[38;2;249;226;175m█ \u001b[38;2;245;194;231m█ \u001b[38;2;242;205;205m█ \u001b[38;2;245;224;220m█ \u001b[38;2;180;190;254m█"
+    }
+  ]
+}
